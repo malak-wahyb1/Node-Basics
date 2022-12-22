@@ -45,7 +45,7 @@ function onDataReceived(text) {
     list();
 
   }
-  else if(text ==='help'){
+  else if(text ==='help\n'){
     help();
   }else if(text.startsWith('add')){
     add(text)
@@ -60,7 +60,7 @@ function onDataReceived(text) {
 
 // this function to run the commend help
 function help() {
-    console.log("hello: hello! dear\hello+anything:hello anything!\nquit or exit : exit the app")
+    console.log("hello    :hello dear!\nhello+any :hello any!\nlist    :display list of tasks\nadd     :add task to the list\nremove      :remove element from the list\nquit or exit :exit the app")
 }
 /**
  * prints "unknown command"
