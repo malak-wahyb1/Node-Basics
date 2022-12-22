@@ -40,12 +40,18 @@ function onDataReceived(text) {
   else if(text === 'hello\n'){
     hello();
   }
+  else if(text ==='help\n'){
+    help();
+  }
   else{
     unknownCommand(text);
   }
 }
 
-
+//help
+function help() {
+    console.log("hello: hello dear\nquit or exit : exit the app")
+}
 /**
  * prints "unknown command"
  * This function is supposed to run when all other commands have failed
