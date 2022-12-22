@@ -48,7 +48,7 @@ function onDataReceived(text) {
   }
 }
 
-//help
+// this function to run the commend help
 function help() {
     console.log("hello: hello dear\nquit or exit : exit the app")
 }
