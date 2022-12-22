@@ -107,7 +107,10 @@ function add(text){
 function remove(text){
   if(text.slice(6).trim() == ""){
     NewList.shift();
-  }else {
+  }else if(parseInt(text.substring(6))>NewList.length){
+     console.log("this number is not exist")
+  }
+  else {
     NewList.splice(parseInt(text.substring(6))-1,1)
   }
 }
