@@ -52,7 +52,7 @@ function onDataReceived(text) {
 
 // this function to run the commend help
 function help() {
-    console.log("hello: hello dear\nquit or exit : exit the app")
+    console.log("hello: hello! dear\hello+anything:hello anything!\nquit or exit : exit the app")
 }
 /**
  * prints "unknown command"
