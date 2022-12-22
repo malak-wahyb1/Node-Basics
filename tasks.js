@@ -49,6 +49,8 @@ function onDataReceived(text) {
     help();
   }else if(text.startsWith('add')){
     add(text)
+  }else if(text.startsWith('remove') ){
+    remove(text)
   }
   else{
     unknownCommand(text);
@@ -100,6 +102,14 @@ function add(text){
     NewList.push(text.slice(3).trim())
     console.log("added")
     }
+}
+//remove function
+function remove(text){
+  if(text.slice(6).trim() == ""){
+    NewList.shift();
+  }else {
+    NewList.splice(parseInt(text.substring(6))-1,1)
+  }
 }
 /**
  * Exits the application
