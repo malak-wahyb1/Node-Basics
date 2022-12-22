@@ -117,6 +117,7 @@ We're going to add three functions: `add`, `remove`, and `list`.
   - `add` without anything should give an error
 4. commit ("add")
 5. Make a "remove" command that allows to remove the last task. The "remove" command works as such:
+
   - `remove` (without anything) should remove the *last* task
   - `remove 1` should remove the FIRST element of the list
   - `remove 2` should remove the SECOND element of the list

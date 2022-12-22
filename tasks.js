@@ -41,8 +41,11 @@ function onDataReceived(text) {
   else if(text.startsWith('hello')||text=="hello"){
   hello(text)
 
+  }else if(text==='list\n'){
+    list();
+
   }
-  else if(text ==='help\n'){
+  else if(text ==='help\n\n'){
     help();
   }
   else{
@@ -75,8 +78,15 @@ function hello(text){
   
   console.log(text.trim()+"!")
 }
-
-
+//declare list
+var NewList=["add","remove","commit","push"];
+//list
+function list(){
+  console.log(NewList)
+  NewList.map((index)=>{
+  console.log(`${NewList.indexOf(index)+1}-${index}`);
+  })
+}
 /**
  * Exits the application
  *
