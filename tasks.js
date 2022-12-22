@@ -45,13 +45,16 @@ function onDataReceived(text) {
     list();
 
   }
-  else if(text ==='help\n\n'){
+  else if(text ==='help'){
     help();
+  }else if(text.startsWith('add')){
+    add(text)
   }
   else{
     unknownCommand(text);
   }
 }
+
 
 // this function to run the commend help
 function help() {
@@ -86,6 +89,17 @@ function list(){
   NewList.map((index)=>{
   console.log(`${NewList.indexOf(index)+1}-${index}`);
   })
+}
+// add function 
+function add(text){
+
+  if(text.slice(3).trim() == "" ){
+    console.log('error you must add a task')
+  }
+  else {
+    NewList.push(text.slice(3).trim())
+    console.log("added")
+    }
 }
 /**
  * Exits the application
