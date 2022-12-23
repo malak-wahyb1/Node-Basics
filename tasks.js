@@ -15,6 +15,12 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  try{
+    NewList = JSON.parse(fs.readFileSync("database.json").toString());
+    }
+    catch(error){
+      console.log('error')
+    }
 }
 
 
@@ -89,8 +95,22 @@ function hello(text){
   
   console.log(text.trim()+"!")
 }
+//fs
+var fs = require("fs");
+//read file
+var data = fs.readFileSync("database.json", "utf8");
+//split data
+var lines = data.split("\n");
+//split lines
+var lines = lines.map(function (line) {
+  return line.split("\t");
+});
+
 //declare list
-var NewList=[{task:"edit",done:true},{task:"add",done:true},{task:"remove",done:false},{task:"list",done:true}];
+var NewList=[{task:"edit",done:true}
+            ,{task:"add",done:true}
+            ,{task:"remove",done:false}
+            ,{task:"list",done:true}];
 //list
 function list(){
   for (let index = 0; index < NewList.length; index++) {
@@ -148,13 +168,21 @@ function uncheck(text){
   }else{
     NewList[parseInt(text.slice(8).trim())-1].done =false;
   }}
+ 
 /**
  * Exits the application
  *
  * @returns {void}
  */
-function quit(){
+function quit() {
   console.log('Quitting now, goodbye!')
+  try {
+fs.writeFileSync("database.json",JSON.stringify(NewList,null,3))
+
+
+  } catch(error){
+console.log('error')
+  }
   process.exit();
 }
 
