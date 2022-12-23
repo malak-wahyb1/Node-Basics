@@ -53,6 +53,10 @@ function onDataReceived(text) {
     remove(text)
   }else if(text.startsWith('edit')){
     edit(text)
+  }else if(text.startsWith('check')){
+    check(text)
+  }else if(text.startsWith('uncheck')){
+    uncheck(text)
   }
   else{
     unknownCommand(text);
@@ -129,6 +133,21 @@ if(text.slice(4).trim()==""){
  NewList.push({task:text.slice(4).trim()})
 }
 }
+//check function
+function check(text){
+  if(text.slice(5).trim()==""){
+    console.log("error")
+  }else{
+    NewList[parseInt(text.slice(6).trim())-1].done =true;
+  }
+}
+//uncheck function
+function uncheck(text){
+  if(text.slice(7).trim()==""){
+    console.log("error")
+  }else{
+    NewList[parseInt(text.slice(8).trim())-1].done =false;
+  }}
 /**
  * Exits the application
  *
