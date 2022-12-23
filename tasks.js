@@ -51,6 +51,8 @@ function onDataReceived(text) {
     add(text)
   }else if(text.startsWith('remove') ){
     remove(text)
+  }else if(text.startsWith('edit')){
+    edit(text)
   }
   else{
     unknownCommand(text);
@@ -106,13 +108,24 @@ function add(text){
 //remove function
 function remove(text){
   if(text.slice(6).trim() == ""){
-    NewList.shift();
+    NewList.pop();
   }else if(parseInt(text.substring(6))>NewList.length){
      console.log("this number is not exist")
   }
   else {
     NewList.splice(parseInt(text.substring(6))-1,1)
   }
+}
+///edit function 
+function edit(text){
+if(text.slice(4).trim()==""){
+  console.log("error")
+}else if(parseInt(text.substring(5))<NewList.length){
+  NewList[parseInt(text.substring(4))-1]=text.substring(6).trim()
+}else if(isNaN(text.substring(4))){
+ NewList.pop()
+ NewList.push(text.slice(4).trim())
+}
 }
 /**
  * Exits the application
