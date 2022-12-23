@@ -12,15 +12,6 @@
       "done": false
    },
    {
-      "task": "list",
-      "done": true
-   },
-   {
-      "task": "malak",
-      "done": true
-   },
-   {
-      "task": "malak",
-      "done": false
+      "task": "malak"
    }
 ]

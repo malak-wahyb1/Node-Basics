@@ -15,8 +15,17 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  if(process.argv.length == 2 )
+  {
+path ="database.json"
+  } else {
+    path = process.argv[2]
+  }
+ read(path)
+}
+function read(path){
   try{
-    NewList = JSON.parse(fs.readFileSync("database.json").toString());
+    NewList = JSON.parse(fs.readFileSync(path).toString());
     }
     catch(error){
       console.log('error')
@@ -168,7 +177,16 @@ function uncheck(text){
   }else{
     NewList[parseInt(text.slice(8).trim())-1].done =false;
   }}
- 
+ // save function
+ function save(path){
+  try {
+    fs.writeFileSync(path,JSON.stringify(NewList,null,3))
+    
+      } catch(error){
+    console.log('error')
+      }
+      process.exit();
+}
 /**
  * Exits the application
  *
@@ -176,15 +194,13 @@ function uncheck(text){
  */
 function quit() {
   console.log('Quitting now, goodbye!')
-  try {
-fs.writeFileSync("database.json",JSON.stringify(NewList,null,3))
-
-
-  } catch(error){
-console.log('error')
+  if(process.argv.length == 2 )
+  {
+bath ="database.json"
+  } else {
+    bath = process.argv[2]
   }
-  process.exit();
-}
+ save(path)}
 
 // The following line starts the application
 startApp("malak Wahyb")
