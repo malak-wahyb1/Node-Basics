@@ -93,8 +93,6 @@ function help() {
 function unknownCommand(c){
   console.log('unknown command: "'+c.trim()+'"')
 }
-
-
 /**
  * Says hello
  *
@@ -159,7 +157,7 @@ if(text.slice(4).trim()==""){
   NewList[parseInt(text.substring(4))-1].task=text.substring(6).trim()
 }else if(isNaN(text.substring(4))){
  NewList.pop()
- NewList.push({task:text.slice(4).trim()})
+ NewList.push({task:text.slice(4).trim(),done:false})
 }
 }
 //check function
