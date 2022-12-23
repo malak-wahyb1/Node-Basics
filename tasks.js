@@ -89,9 +89,8 @@ function hello(text){
 var NewList=["add","remove","commit","push"];
 //list
 function list(){
-  console.log(NewList)
   NewList.map((index)=>{
-  console.log(`${NewList.indexOf(index)+1}-${index}`);
+  console.log(`${NewList.indexOf(index)+1}-[*]${index}`);
   })
 }
 // add function 
