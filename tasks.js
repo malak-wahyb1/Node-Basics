@@ -86,13 +86,16 @@ function hello(text){
   console.log(text.trim()+"!")
 }
 //declare list
-var NewList=["add","remove","commit","push"];
+var NewList=[{task:"edit",done:true},{task:"add",done:true},{task:"remove",done:false},{task:"list",done:true}];
 //list
 function list(){
-  NewList.map((index)=>{
-  console.log(`${NewList.indexOf(index)+1}-[*]${index}`);
-  })
-}
+  for (let index = 0; index < NewList.length; index++) {
+   if(NewList[index].done){
+    console.log("[*]"+":"+NewList[index].task);
+   }else{
+   console.log("[]"+":"+NewList[index].task)
+  }
+}}
 // add function 
 function add(text){
 
@@ -100,7 +103,7 @@ function add(text){
     console.log('error you must add a task')
   }
   else {
-    NewList.push(text.slice(3).trim())
+    NewList.push({task:text.slice(3).trim(),done:false})
     console.log("added")
     }
 }
@@ -120,10 +123,10 @@ function edit(text){
 if(text.slice(4).trim()==""){
   console.log("error")
 }else if(parseInt(text.substring(5))<NewList.length){
-  NewList[parseInt(text.substring(4))-1]=text.substring(6).trim()
+  NewList[parseInt(text.substring(4))-1].task=text.substring(6).trim()
 }else if(isNaN(text.substring(4))){
  NewList.pop()
- NewList.push(text.slice(4).trim())
+ NewList.push({task:text.slice(4).trim()})
 }
 }
 /**
